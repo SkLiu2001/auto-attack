@@ -9,8 +9,10 @@ import torchvision.datasets as datasets
 import torch.utils.data as data
 import torchvision.transforms as transforms
 
+# import sys
+# sys.path.insert(0,'..')
 import sys
-sys.path.insert(0,'..')
+sys.path.append('/root/autodl-tmp/auto-attack')
 
 from resnet import *
 

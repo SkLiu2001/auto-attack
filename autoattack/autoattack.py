@@ -4,7 +4,7 @@ import time
 import numpy as np
 import torch
 
-from .other_utils import Logger
+from autoattack.other_utils import Logger
 from autoattack import checks
 from autoattack.state import EvaluationState
 
