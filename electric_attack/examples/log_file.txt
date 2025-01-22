@@ -70,3 +70,15 @@ apgd-ce - 1/1 - 1 out of 1 successfully perturbed
 robust accuracy after APGD-CE: 0.00% (total time 0.6 s)
 max Linf perturbation: 0.03137, nan in tensor: 0, max: 0.98431, min: 0.00000
 robust accuracy: 0.00%
+using standard version including apgd-ce, apgd-t, fab-t, square.
+initial accuracy: 0.00%
+max Linf perturbation: 0.00000, nan in tensor: 0, max: 0.95686, min: 0.00392
+robust accuracy: 0.00%
+using standard version including apgd-ce, apgd-t, fab-t, square.
+initial accuracy: 0.00%
+max Linf perturbation: 0.00000, nan in tensor: 0, max: 0.95686, min: 0.00392
+robust accuracy: 0.00%
+using standard version including apgd-ce, apgd-t, fab-t, square.
+initial accuracy: 0.00%
+max Linf perturbation: 0.00000, nan in tensor: 0, max: 0.95686, min: 0.00392
+robust accuracy: 0.00%

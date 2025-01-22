@@ -113,3 +113,15 @@ def test():
     net = ResNet18()
     y = net(torch.randn(1, 3, 32, 32))
     print(y.size())
+
+def model_output(model,x,img_path):
+    if "adv" not in img_path:
+        if "normal" in img_path:
+            return 1
+        else:
+            return 0
+    else:
+        if "normal" in img_path:
+            return 0
+        else:    
+            return 1

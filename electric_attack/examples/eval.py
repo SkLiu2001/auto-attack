@@ -50,8 +50,8 @@ if __name__ == '__main__':
         os.makedirs(args.save_dir)
     
     # load attack    
-    from autoattack import AutoAttack
-    adversary = AutoAttack(model, norm=args.norm, eps=args.epsilon, log_path=args.log_path,
+    from electric_attack import ElecAttack
+    adversary = ElecAttack(model, norm=args.norm, eps=args.epsilon, log_path=args.log_path,
         version=args.version)
     
     l = [x for (x, y) in test_loader]

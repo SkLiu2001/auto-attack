@@ -13,7 +13,7 @@ import torchvision.transforms as transforms
 import sys
 #sys.path.insert(0,'..')
 
-from autoattack import AutoAttack, utils_tf
+from electric_attack import ElecAttack, utils_tf
 #
 
 #%%
@@ -144,7 +144,7 @@ if __name__ == '__main__':
     model_adapted = utils_tf.ModelAdapter(logits, x_input, y_input, sess)
 
     # run attack
-    adversary = AutoAttack(model_adapted, norm='Linf', eps=epsilon, version='standard', is_tf_model=True)
+    adversary = ElecAttack(model_adapted, norm='Linf', eps=epsilon, version='standard', is_tf_model=True)
     x_adv, y_adv = adversary.run_standard_evaluation(torch_testX, torch_testY, bs=batch_size, return_labels=True)
     np_x_adv = np.moveaxis(x_adv.cpu().numpy(), 1, 3)
     np.save("./output/mnist_adv.npy", np_x_adv)

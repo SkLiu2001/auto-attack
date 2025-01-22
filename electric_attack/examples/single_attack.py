@@ -50,14 +50,18 @@ if __name__ == '__main__':
     # load label (you can set a target label or use model prediction)
     # For demonstration, use model's prediction as the label
     with torch.no_grad():
-        output = model(img_tensor)
-        pred_label = output.argmax(dim=1).item()
-    print(f'Original predicted label: {pred_label}')
+        pred_label = model_output(model, img_tensor,img_path)
+        # output = model(img_tensor)
+        # pred_label = output.argmax(dim=1).item()
+    if pred_label == 1:
+        print(f'Original predicted label: normal')
+    else:
+        print(f'Original predicted label: abnormal')
 
     # load attack
-    from autoattack import AutoAttack
-    adversary = AutoAttack(model, norm=args.norm, eps=args.epsilon, log_path=args.log_path,
-                           version=args.version)
+    from electric_attack import ElecAttack
+    adversary = ElecAttack(model, norm=args.norm, eps=args.epsilon, log_path=args.log_path,
+                           version=args.version, verbose=False)
 
     # perform attack on the single image
     adv_img = adversary.run_standard_evaluation(img_tensor, torch.tensor([pred_label]).cuda(),
@@ -65,13 +69,17 @@ if __name__ == '__main__':
 
     # get prediction for adversarial image
     with torch.no_grad():
-        adv_output = model(adv_img)
-        adv_pred_label = adv_output.argmax(dim=1).item()
-    print(f'Adversarial predicted label: {adv_pred_label}')
+        adv_pred_label = model_output(model, adv_img, img_path+"adv")
+        # adv_output = model(adv_img)
+        # adv_pred_label = adv_output.argmax(dim=1).item()
+    if adv_pred_label == 1:
+        print(f'Adversarial predicted label: normal')
+    else:
+        print(f'Adversarial predicted label: abnormal')
 
     # save adversarial image if desired
-    # adv_img_pil = transforms.ToPILImage()(adv_img.squeeze(0).cpu())
-    # adv_img_pil.save(os.path.join(args.save_dir, 'adversarial_image.jpg'))
+    adv_img_pil = transforms.ToPILImage()(adv_img.squeeze(0).cpu())
+    adv_img_pil.save(os.path.join(args.save_dir, 'adversarial_image.jpg'))
 
     # create save dir
     if not os.path.exists(args.save_dir):

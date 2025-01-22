@@ -13,7 +13,7 @@ import torchvision.transforms as transforms
 import sys
 sys.path.insert(0, '..')
 
-from autoattack import AutoAttack, utils_tf2
+from electric_attack import ElecAttack, utils_tf2
 
 
 #%%
@@ -95,7 +95,7 @@ def mnist_model():
 #%%
 def arg_parser(parser):
 
-    parser.add_argument("--path" , dest ="path", type=str, default='./autoattack/examples/tf_model.weight.h5', help="path of tf.keras model's wieghts")
+    parser.add_argument("--path" , dest ="path", type=str, default='./electric_attack/examples/tf_model.weight.h5', help="path of tf.keras model's wieghts")
     args, unknown = parser.parse_known_args()
     if unknown:
         msg = " ".join(unknown)
@@ -139,7 +139,7 @@ if __name__ == '__main__':
     model_adapted = utils_tf2.ModelAdapter(atk_model)
 
     # run attack
-    adversary = AutoAttack(model_adapted, norm='Linf', eps=epsilon, version='standard', is_tf_model=True)
+    adversary = ElecAttack(model_adapted, norm='Linf', eps=epsilon, version='standard', is_tf_model=True)
     x_adv, y_adv = adversary.run_standard_evaluation(torch_testX, torch_testY, bs=batch_size, return_labels=True)
     np_x_adv = np.moveaxis(x_adv.cpu().numpy(), 1, 3)
     np.save("./output/mnist_adv.npy", np_x_adv)

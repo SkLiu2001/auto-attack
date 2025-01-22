@@ -14,8 +14,8 @@ import time
 
 import torch
 
-from autoattack.other_utils import zero_gradients
-from autoattack.fab_base import FABAttack
+from electric_attack.other_utils import zero_gradients
+from electric_attack.fab_base import FABAttack
 
 class FABAttack_PT(FABAttack):
     """

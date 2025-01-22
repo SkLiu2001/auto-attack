@@ -4,12 +4,12 @@ import time
 import numpy as np
 import torch
 
-from autoattack.other_utils import Logger
-from autoattack import checks
-from autoattack.state import EvaluationState
+from electric_attack.other_utils import Logger
+from electric_attack import checks
+from electric_attack.state import EvaluationState
 
 
-class AutoAttack():
+class ElecAttack():
     def __init__(self, model, norm='Linf', eps=.3, seed=None, verbose=True,
                  attacks_to_run=[], version='standard', is_tf_model=False,
                  device='cuda', log_path=None):
