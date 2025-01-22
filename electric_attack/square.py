@@ -4,7 +4,9 @@
 # This source code is licensed under the license found in the
 # LICENSE file in the root directory of this source tree.
 #
-
+'''
+Square Attack，一种基于随机搜索的对抗攻击算法。Square Attack 通过生成方形区域的扰动来欺骗模型，支持多种范数约束（如 L1、L2、Linf），并且可以用于非目标攻击和目标攻击。它的核心思想是通过随机选择方形区域并生成扰动，逐步优化对抗样本
+'''
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function

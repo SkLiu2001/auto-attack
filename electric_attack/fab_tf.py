@@ -4,7 +4,9 @@
 # This source code is licensed under the license found in the
 # LICENSE file in the root directory of this source tree.
 #
-
+'''
+FAB（Fast Adaptive Boundary）攻击 的 tensorflow版本
+'''
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function

@@ -4,6 +4,9 @@
 # This source code is licensed under the license found in the
 # LICENSE file in the root directory of this source tree
 #
+'''
+这个文件实现了一个名为 AutoPGD（Auto Projected Gradient Descent） 的攻击算法，用于生成对抗样本。对抗样本是通过对输入数据进行微小扰动，使得机器学习模型（如神经网络）产生错误预测的样本。AutoPGD 是一种基于梯度的攻击方法，支持多种范数约束（如 L1、L2、Linf），并且可以用于非目标攻击和目标攻击。
+'''
 
 import time
 import torch

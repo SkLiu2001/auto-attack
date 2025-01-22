@@ -5,6 +5,10 @@
 # LICENSE file in the root directory of this source tree.
 #
 
+'''
+FAB（Fast Adaptive Boundary）攻击，这是一种用于生成对抗样本的优化算法。FAB 攻击支持多种范数约束（如 L1、L2、Linf），并且可以用于非目标攻击和目标攻击。它的核心思想是通过快速自适应地调整扰动方向，找到能够欺骗模型的对抗样本。
+'''
+
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
